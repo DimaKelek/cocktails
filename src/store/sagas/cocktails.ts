@@ -1,11 +1,11 @@
 import { call, put } from 'redux-saga/effects';
 import { type PayloadAction } from '@reduxjs/toolkit';
 
+import { COCKTAILS_ACTIONS } from '@store/slices';
+
 import { type CocktailCodes, cocktailsService } from '@api';
 
 import { HttpStatusCode } from 'axios';
-
-import { COCKTAILS_ACTIONS } from '../slices/cocktailsSlice';
 
 type ServiceResponse = Awaited<
   ReturnType<typeof cocktailsService.getCocktails>

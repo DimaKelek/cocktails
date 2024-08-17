@@ -1,6 +1,7 @@
 import { takeLatest } from 'redux-saga/effects';
 
-import { COCKTAILS_ACTIONS } from '../slices/cocktailsSlice';
+import { COCKTAILS_ACTIONS } from '@store/slices';
+
 import { getCocktails } from './cocktails';
 
 export function* rootSaga() {
