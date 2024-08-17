@@ -1,0 +1,41 @@
+@import './fonts';
+
+:root {
+  --dark-color: #000000;
+  --dark-color-opacity: #161616;
+  --light-color: #ffffff;
+  --primary: #ae7aff;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--dark-color);
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, li {
+  font-family: "Quicksand", sans-serif;
+  color: var(--light-color);
+}
+
+@mixin shadow {
+  color: #fff;
+
+  text-shadow: 0 0 5px #099ddc, 0 0 5px #099ddc;
+}

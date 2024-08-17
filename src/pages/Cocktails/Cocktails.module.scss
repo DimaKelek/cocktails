@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 2.5rem 2rem;
+
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  background-color: var(--dark-color);
+
+  @media (max-width: 557px) {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../app/styles/index.scss';
+
+.container {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.title {
+  @include shadow;
+
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,11 @@
+.mainContainer {
+  display: flex;
+
+  @media (max-width: 557px) {
+    display: block;
+  }
+}
+
+.outletContainer {
+  background-color: var(--dark-color);
+}
