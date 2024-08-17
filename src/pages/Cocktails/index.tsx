@@ -45,11 +45,11 @@ export const CocktailsPage = (): ReactElement => {
   }
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return <div>{'Loading ...'}</div>;
   }
 
   if (!cocktails?.length) {
-    return <div>Cocktails not found :C</div>;
+    return <div>{'Cocktails not found :C'}</div>;
   }
 
   return (
