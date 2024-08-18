@@ -1,3 +1,5 @@
+import { type ReactElement } from 'react';
+
 import styles from './InfoList.module.scss';
 
 type InfoListProps = {
@@ -5,7 +7,7 @@ type InfoListProps = {
   values: string[];
 };
 
-export const InfoList = (props: InfoListProps) => {
+export const InfoList = (props: InfoListProps): ReactElement => {
   const { labels, values } = props;
 
   return (

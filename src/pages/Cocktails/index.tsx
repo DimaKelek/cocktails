@@ -9,9 +9,10 @@ import { COCKTAILS_ACTIONS } from '@store/slices';
 
 import { type CocktailCodes } from '@api';
 
+import Logo from '@shared/assets/logo.png';
 import { isValidCocktailPath } from '@shared/types';
 
-import { CocktailWidget } from '@components';
+import { CocktailWidget, Loader } from '@components';
 
 import styles from './Cocktails.module.scss';
 
@@ -48,11 +49,16 @@ export const CocktailsPage = (): ReactElement => {
   }, [cocktailId]);
 
   if (isLoading) {
-    return <div>{'Loading ...'}</div>;
+    return <Loader />;
   }
 
   if (!cocktails?.length) {
-    return <div>{'Cocktails not found :C'}</div>;
+    return (
+      <div className={styles.emptyContent}>
+        <img src={Logo} alt={'logo'} className={styles.logo} />
+        <p className={styles.text}>{'Cocktails not found :C'}</p>
+      </div>
+    );
   }
 
   return (

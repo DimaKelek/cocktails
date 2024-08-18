@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import type { CocktailCodes, CocktailType } from '@api';
 
-import { EMPTY_OBJECT } from '@shared/constants';
+import { EMPTY_OBJECT, EMPTY_STRING } from '@shared/constants';
 
 import { type GetCocktailsSuccessPayload } from './types';
 
@@ -11,11 +11,13 @@ type DrinkType = Record<CocktailType['idDrink'], CocktailType>;
 type CocktailsState = {
   isLoadingGetCocktails: boolean;
   drinks: Record<string, DrinkType>;
+  error: string;
 };
 
 const initialState: CocktailsState = {
   isLoadingGetCocktails: false,
   drinks: EMPTY_OBJECT,
+  error: EMPTY_STRING,
 };
 
 export const cocktailsSlice = createSlice({
@@ -37,6 +39,9 @@ export const cocktailsSlice = createSlice({
 
         return acc;
       }, {});
+    },
+    SET_ERROR: (state, { payload }: PayloadAction<string>) => {
+      state.error = payload;
     },
   },
 });

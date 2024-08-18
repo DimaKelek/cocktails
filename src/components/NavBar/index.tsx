@@ -6,7 +6,12 @@ import logo from '../../shared/assets/logo.png';
 import styles from './NavBar.module.scss';
 import { NavItem } from './NavItem';
 
-const navigationConfig = [
+type LinkType = {
+  path: Paths;
+  label: string;
+};
+
+const navigationConfig: LinkType[] = [
   { path: Paths.Margarita, label: 'Margarita' },
   { path: Paths.Mojito, label: 'Mojito' },
   { path: Paths.A1, label: 'A1' },

@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import './styles/index.scss';
 
 import { persistor, store } from '../store';
-import { router } from './navigation/router.tsx';
+import { router } from './navigation/router';
 
 createRoot(document.getElementById('root')!).render(
   <Provider store={store}>

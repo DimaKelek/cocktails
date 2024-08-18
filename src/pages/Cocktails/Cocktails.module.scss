@@ -1,3 +1,5 @@
+@import "@app/styles";
+
 .content {
   display: flex;
   flex-direction: column;
@@ -14,4 +16,21 @@
     max-height: 100%;
     overflow-y: auto;
   }
+}
+
+.logo {
+  width: 10rem;
+  height: 10rem;
+}
+
+.text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.emptyContent {
+  @include flex-center;
+
+  height: 100vh;
+  flex-direction: column;
 }

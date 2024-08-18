@@ -29,7 +29,7 @@ export function* getCocktails({ payload }: PayloadAction<CocktailCodes>) {
       );
     }
   } catch (error) {
-    console.log('### error', error);
+    yield put(COCKTAILS_ACTIONS.SET_ERROR(JSON.stringify(error)));
   } finally {
     yield put(COCKTAILS_ACTIONS.GET_COCKTAILS_LOADING(false));
   }

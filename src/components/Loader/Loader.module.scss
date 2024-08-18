@@ -1,0 +1,21 @@
+@import "@app/styles";
+
+.loaderContainer {
+  @include flex-center;
+
+  height: 100vh;
+}
+
+.loader {
+  border: 0.5rem solid var(--light-color);
+  border-top: 0.5rem solid var(--primary);
+  border-radius: 50%;
+  width: 3.125rem;
+  height: 3.125rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
