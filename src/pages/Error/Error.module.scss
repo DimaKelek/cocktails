@@ -1,0 +1,42 @@
+@import "@app/styles";
+
+.container {
+  @include flex-center;
+  width: 100vw;
+  height: 100vh;
+
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.backButton {
+  @include flex-center;
+  width: 10rem;
+
+  padding: 1.25rem 1rem;
+  border-radius: 0.5rem;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Quicksand", sans-serif;
+
+  transition-duration: 0.3s;
+
+  color: var(--light-color);
+  background-color: var(--primary);
+
+  &:hover {
+    background-color: var(--secondary);
+  }
+}
+
+.error {
+  @include flex-center;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.logo {
+  width: 10rem;
+  height: 10rem;
+}

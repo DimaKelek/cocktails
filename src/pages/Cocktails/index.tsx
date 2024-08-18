@@ -1,5 +1,7 @@
 import { type ReactElement, useEffect, useRef } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { Paths } from '@app/navigation/types';
 
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { selectDrinks, selectIsLoading } from '@store/selectors';
@@ -15,15 +17,26 @@ import styles from './Cocktails.module.scss';
 
 export const CocktailsPage = (): ReactElement => {
   const { cocktailId } = useParams<{ cocktailId: CocktailCodes }>();
-  const isValid = isValidCocktailPath(cocktailId);
+  const navigate = useNavigate();
+
   const dispatch = useAppDispatch();
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const isValid = isValidCocktailPath(cocktailId);
 
   const cocktails = useAppSelector(selectDrinks(cocktailId));
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
-    if (isValid && (!cocktails || !cocktails.length)) {
+    if (!isValid) {
+      navigate(Paths.Error, {
+        replace: true,
+        state: { message: `Cocktail with ID '${cocktailId}' not found` },
+      });
+      return;
+    }
+
+    if (!cocktails || !cocktails.length) {
       dispatch(COCKTAILS_ACTIONS.GET_COCKTAILS_TRIGGER(cocktailId));
     }
 
@@ -33,16 +46,6 @@ export const CocktailsPage = (): ReactElement => {
       containerRef.current?.scrollTo({ top: 0 });
     }
   }, [cocktailId]);
-
-  if (!isValid) {
-    return (
-      <Navigate
-        to={`error`}
-        replace
-        state={{ message: `Cocktail with ID '${cocktailId}' not found` }}
-      />
-    );
-  }
 
   if (isLoading) {
     return <div>{'Loading ...'}</div>;

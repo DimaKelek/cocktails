@@ -5,6 +5,8 @@
   --dark-color-opacity: #161616;
   --light-color: #ffffff;
   --primary: #ae7aff;
+  --secondary: #8f63d3;
+  --blue: #099ddc;
 }
 
 html, body {
@@ -35,7 +37,15 @@ h1, h2, h3, h4, h5, h6, p, span, li {
 }
 
 @mixin shadow {
-  color: #fff;
+  color: var(--light-color);
 
-  text-shadow: 0 0 5px #099ddc, 0 0 5px #099ddc;
+  text-shadow: 0 0 0.3125rem var(--blue), 0 0 0.3125rem var(--blue);
 }
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
